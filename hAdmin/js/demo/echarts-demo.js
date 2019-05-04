@@ -258,6 +258,7 @@ $(function () {
     pieChart.setOption(pieoption);
     $(window).resize(pieChart.resize);
 
+    // 6
     var radarChart = echarts.init(document.getElementById("echarts-radar-chart"));
     var radaroption = {
         title : {
@@ -309,203 +310,229 @@ $(function () {
     radarChart.setOption(radaroption);
     $(window).resize(radarChart.resize);
 
-    var mapChart = echarts.init(document.getElementById("echarts-map-chart"));
-    var mapoption = {
+    // map
+    // var mapChart = echarts.init(document.getElementById("echarts-map-chart"));
+    // var mapoption = {
+    //     title : {
+    //         text: 'iphone销量',
+    //         subtext: '纯属虚构',
+    //         x:'center'
+    //     },
+    //     tooltip : {
+    //         trigger: 'item'
+    //     },
+    //     legend: {
+    //         orient: 'vertical',
+    //         x:'left',
+    //         data:['iphone3','iphone4','iphone5']
+    //     },
+    //     dataRange: {
+    //         min: 0,
+    //         max: 2500,
+    //         x: 'left',
+    //         y: 'bottom',
+    //         text:['高','低'],           // 文本，默认为数值文本
+    //         calculable : true
+    //     },
+    //     toolbox: {
+    //         show: true,
+    //         orient : 'vertical',
+    //         x: 'right',
+    //         y: 'center',
+    //         feature : {
+    //             mark : {show: true},
+    //             dataView : {show: true, readOnly: false},
+    //             restore : {show: true},
+    //             saveAsImage : {show: true}
+    //         }
+    //     },
+    //     roamController: {
+    //         show: true,
+    //         x: 'right',
+    //         mapTypeControl: {
+    //             'china': true
+    //         }
+    //     },
+    //     series : [
+    //         {
+    //             name: 'iphone3',
+    //             type: 'map',
+    //             mapType: 'china',
+    //             roam: false,
+    //             itemStyle:{
+    //                 normal:{label:{show:true}},
+    //                 emphasis:{label:{show:true}}
+    //             },
+    //             data:[
+    //                 {name: '北京',value: Math.round(Math.random()*1000)},
+    //                 {name: '天津',value: Math.round(Math.random()*1000)},
+    //                 {name: '上海',value: Math.round(Math.random()*1000)},
+    //                 {name: '重庆',value: Math.round(Math.random()*1000)},
+    //                 {name: '河北',value: Math.round(Math.random()*1000)},
+    //                 {name: '河南',value: Math.round(Math.random()*1000)},
+    //                 {name: '云南',value: Math.round(Math.random()*1000)},
+    //                 {name: '辽宁',value: Math.round(Math.random()*1000)},
+    //                 {name: '黑龙江',value: Math.round(Math.random()*1000)},
+    //                 {name: '湖南',value: Math.round(Math.random()*1000)},
+    //                 {name: '安徽',value: Math.round(Math.random()*1000)},
+    //                 {name: '山东',value: Math.round(Math.random()*1000)},
+    //                 {name: '新疆',value: Math.round(Math.random()*1000)},
+    //                 {name: '江苏',value: Math.round(Math.random()*1000)},
+    //                 {name: '浙江',value: Math.round(Math.random()*1000)},
+    //                 {name: '江西',value: Math.round(Math.random()*1000)},
+    //                 {name: '湖北',value: Math.round(Math.random()*1000)},
+    //                 {name: '广西',value: Math.round(Math.random()*1000)},
+    //                 {name: '甘肃',value: Math.round(Math.random()*1000)},
+    //                 {name: '山西',value: Math.round(Math.random()*1000)},
+    //                 {name: '内蒙古',value: Math.round(Math.random()*1000)},
+    //                 {name: '陕西',value: Math.round(Math.random()*1000)},
+    //                 {name: '吉林',value: Math.round(Math.random()*1000)},
+    //                 {name: '福建',value: Math.round(Math.random()*1000)},
+    //                 {name: '贵州',value: Math.round(Math.random()*1000)},
+    //                 {name: '广东',value: Math.round(Math.random()*1000)},
+    //                 {name: '青海',value: Math.round(Math.random()*1000)},
+    //                 {name: '西藏',value: Math.round(Math.random()*1000)},
+    //                 {name: '四川',value: Math.round(Math.random()*1000)},
+    //                 {name: '宁夏',value: Math.round(Math.random()*1000)},
+    //                 {name: '海南',value: Math.round(Math.random()*1000)},
+    //                 {name: '台湾',value: Math.round(Math.random()*1000)},
+    //                 {name: '香港',value: Math.round(Math.random()*1000)},
+    //                 {name: '澳门',value: Math.round(Math.random()*1000)}
+    //             ]
+    //         },
+    //         {
+    //             name: 'iphone4',
+    //             type: 'map',
+    //             mapType: 'china',
+    //             itemStyle:{
+    //                 normal:{label:{show:true}},
+    //                 emphasis:{label:{show:true}}
+    //             },
+    //             data:[
+    //                 {name: '北京',value: Math.round(Math.random()*1000)},
+    //                 {name: '天津',value: Math.round(Math.random()*1000)},
+    //                 {name: '上海',value: Math.round(Math.random()*1000)},
+    //                 {name: '重庆',value: Math.round(Math.random()*1000)},
+    //                 {name: '河北',value: Math.round(Math.random()*1000)},
+    //                 {name: '安徽',value: Math.round(Math.random()*1000)},
+    //                 {name: '新疆',value: Math.round(Math.random()*1000)},
+    //                 {name: '浙江',value: Math.round(Math.random()*1000)},
+    //                 {name: '江西',value: Math.round(Math.random()*1000)},
+    //                 {name: '山西',value: Math.round(Math.random()*1000)},
+    //                 {name: '内蒙古',value: Math.round(Math.random()*1000)},
+    //                 {name: '吉林',value: Math.round(Math.random()*1000)},
+    //                 {name: '福建',value: Math.round(Math.random()*1000)},
+    //                 {name: '广东',value: Math.round(Math.random()*1000)},
+    //                 {name: '西藏',value: Math.round(Math.random()*1000)},
+    //                 {name: '四川',value: Math.round(Math.random()*1000)},
+    //                 {name: '宁夏',value: Math.round(Math.random()*1000)},
+    //                 {name: '香港',value: Math.round(Math.random()*1000)},
+    //                 {name: '澳门',value: Math.round(Math.random()*1000)}
+    //             ]
+    //         },
+    //         {
+    //             name: 'iphone5',
+    //             type: 'map',
+    //             mapType: 'china',
+    //             itemStyle:{
+    //                 normal:{label:{show:true}},
+    //                 emphasis:{label:{show:true}}
+    //             },
+    //             data:[
+    //                 {name: '北京',value: Math.round(Math.random()*1000)},
+    //                 {name: '天津',value: Math.round(Math.random()*1000)},
+    //                 {name: '上海',value: Math.round(Math.random()*1000)},
+    //                 {name: '广东',value: Math.round(Math.random()*1000)},
+    //                 {name: '台湾',value: Math.round(Math.random()*1000)},
+    //                 {name: '香港',value: Math.round(Math.random()*1000)},
+    //                 {name: '澳门',value: Math.round(Math.random()*1000)}
+    //             ]
+    //         }
+    //     ]
+    // };
+    // mapChart.setOption(mapoption);
+    // $(window).resize(mapChart.resize);
+
+    // 7
+    var chordChart = echarts.init(document.getElementById("echarts-chord-chart"));
+    var chordoption = {
         title : {
-            text: 'iphone销量',
+            text: '南丁格尔玫瑰图',
             subtext: '纯属虚构',
             x:'center'
         },
         tooltip : {
-            trigger: 'item'
-        },
-        legend: {
-            orient: 'vertical',
-            x:'left',
-            data:['iphone3','iphone4','iphone5']
-        },
-        dataRange: {
-            min: 0,
-            max: 2500,
-            x: 'left',
-            y: 'bottom',
-            text:['高','低'],           // 文本，默认为数值文本
-            calculable : true
-        },
-        toolbox: {
-            show: true,
-            orient : 'vertical',
-            x: 'right',
-            y: 'center',
-            feature : {
-                mark : {show: true},
-                dataView : {show: true, readOnly: false},
-                restore : {show: true},
-                saveAsImage : {show: true}
-            }
-        },
-        roamController: {
-            show: true,
-            x: 'right',
-            mapTypeControl: {
-                'china': true
-            }
-        },
-        series : [
-            {
-                name: 'iphone3',
-                type: 'map',
-                mapType: 'china',
-                roam: false,
-                itemStyle:{
-                    normal:{label:{show:true}},
-                    emphasis:{label:{show:true}}
-                },
-                data:[
-                    {name: '北京',value: Math.round(Math.random()*1000)},
-                    {name: '天津',value: Math.round(Math.random()*1000)},
-                    {name: '上海',value: Math.round(Math.random()*1000)},
-                    {name: '重庆',value: Math.round(Math.random()*1000)},
-                    {name: '河北',value: Math.round(Math.random()*1000)},
-                    {name: '河南',value: Math.round(Math.random()*1000)},
-                    {name: '云南',value: Math.round(Math.random()*1000)},
-                    {name: '辽宁',value: Math.round(Math.random()*1000)},
-                    {name: '黑龙江',value: Math.round(Math.random()*1000)},
-                    {name: '湖南',value: Math.round(Math.random()*1000)},
-                    {name: '安徽',value: Math.round(Math.random()*1000)},
-                    {name: '山东',value: Math.round(Math.random()*1000)},
-                    {name: '新疆',value: Math.round(Math.random()*1000)},
-                    {name: '江苏',value: Math.round(Math.random()*1000)},
-                    {name: '浙江',value: Math.round(Math.random()*1000)},
-                    {name: '江西',value: Math.round(Math.random()*1000)},
-                    {name: '湖北',value: Math.round(Math.random()*1000)},
-                    {name: '广西',value: Math.round(Math.random()*1000)},
-                    {name: '甘肃',value: Math.round(Math.random()*1000)},
-                    {name: '山西',value: Math.round(Math.random()*1000)},
-                    {name: '内蒙古',value: Math.round(Math.random()*1000)},
-                    {name: '陕西',value: Math.round(Math.random()*1000)},
-                    {name: '吉林',value: Math.round(Math.random()*1000)},
-                    {name: '福建',value: Math.round(Math.random()*1000)},
-                    {name: '贵州',value: Math.round(Math.random()*1000)},
-                    {name: '广东',value: Math.round(Math.random()*1000)},
-                    {name: '青海',value: Math.round(Math.random()*1000)},
-                    {name: '西藏',value: Math.round(Math.random()*1000)},
-                    {name: '四川',value: Math.round(Math.random()*1000)},
-                    {name: '宁夏',value: Math.round(Math.random()*1000)},
-                    {name: '海南',value: Math.round(Math.random()*1000)},
-                    {name: '台湾',value: Math.round(Math.random()*1000)},
-                    {name: '香港',value: Math.round(Math.random()*1000)},
-                    {name: '澳门',value: Math.round(Math.random()*1000)}
-                ]
-            },
-            {
-                name: 'iphone4',
-                type: 'map',
-                mapType: 'china',
-                itemStyle:{
-                    normal:{label:{show:true}},
-                    emphasis:{label:{show:true}}
-                },
-                data:[
-                    {name: '北京',value: Math.round(Math.random()*1000)},
-                    {name: '天津',value: Math.round(Math.random()*1000)},
-                    {name: '上海',value: Math.round(Math.random()*1000)},
-                    {name: '重庆',value: Math.round(Math.random()*1000)},
-                    {name: '河北',value: Math.round(Math.random()*1000)},
-                    {name: '安徽',value: Math.round(Math.random()*1000)},
-                    {name: '新疆',value: Math.round(Math.random()*1000)},
-                    {name: '浙江',value: Math.round(Math.random()*1000)},
-                    {name: '江西',value: Math.round(Math.random()*1000)},
-                    {name: '山西',value: Math.round(Math.random()*1000)},
-                    {name: '内蒙古',value: Math.round(Math.random()*1000)},
-                    {name: '吉林',value: Math.round(Math.random()*1000)},
-                    {name: '福建',value: Math.round(Math.random()*1000)},
-                    {name: '广东',value: Math.round(Math.random()*1000)},
-                    {name: '西藏',value: Math.round(Math.random()*1000)},
-                    {name: '四川',value: Math.round(Math.random()*1000)},
-                    {name: '宁夏',value: Math.round(Math.random()*1000)},
-                    {name: '香港',value: Math.round(Math.random()*1000)},
-                    {name: '澳门',value: Math.round(Math.random()*1000)}
-                ]
-            },
-            {
-                name: 'iphone5',
-                type: 'map',
-                mapType: 'china',
-                itemStyle:{
-                    normal:{label:{show:true}},
-                    emphasis:{label:{show:true}}
-                },
-                data:[
-                    {name: '北京',value: Math.round(Math.random()*1000)},
-                    {name: '天津',value: Math.round(Math.random()*1000)},
-                    {name: '上海',value: Math.round(Math.random()*1000)},
-                    {name: '广东',value: Math.round(Math.random()*1000)},
-                    {name: '台湾',value: Math.round(Math.random()*1000)},
-                    {name: '香港',value: Math.round(Math.random()*1000)},
-                    {name: '澳门',value: Math.round(Math.random()*1000)}
-                ]
-            }
-        ]
-    };
-    mapChart.setOption(mapoption);
-    $(window).resize(mapChart.resize);
-
-    var chordChart = echarts.init(document.getElementById("echarts-chord-chart"));
-    var chordoption = {
-        title : {
-            text: '测试数据',
-            subtext: 'From d3.js',
-            x:'right',
-            y:'bottom'
-        },
-        tooltip : {
             trigger: 'item',
-            formatter: function (params) {
-                if (params.indicator2) { // is edge
-                    return params.value.weight;
-                } else {// is node
-                    return params.name
-                }
-            }
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
         },
-        toolbox: {
-            show : true,
-            feature : {
-                restore : {show: true},
-                magicType: {show: true, type: ['force', 'chord']},
-                saveAsImage : {show: true}
-            }
-        },
-        legend: {
-            x: 'left',
-            data:['group1','group2', 'group3', 'group4']
-        },
+        // legend: {
+        //     x : 'center',
+        //     y : 'bottom',
+        //     data:['rose1','rose2','rose3','rose4','rose5','rose6','rose7','rose8']
+        // },
+        // toolbox: {
+        //     show : true,
+        //     feature : {
+        //         mark : {show: true},
+        //         dataView : {show: true, readOnly: false},
+        //         magicType : {
+        //             show: true,
+        //             type: ['pie', 'funnel']
+        //         },
+        //         restore : {show: true},
+        //         saveAsImage : {show: true}
+        //     }
+        // },
+        calculable : true,
         series : [
             {
-                type:'chord',
-                sort : 'ascending',
-                sortSub : 'descending',
-                showScale : true,
-                showScaleText : true,
-                data : [
-                    {name : 'group1'},
-                    {name : 'group2'},
-                    {name : 'group3'},
-                    {name : 'group4'}
-                ],
-                itemStyle : {
-                    normal : {
-                        label : {
-                            show : false
-                        }
+                name:'半径模式',
+                type:'pie',
+                radius : [20, 90],
+                center : ['25%', '50%'],
+                roseType : 'radius',
+                label: {
+                    normal: {
+                        show: false
+                    },
+                    emphasis: {
+                        show: true
                     }
                 },
-                matrix : [
-                    [11975,  5871, 8916, 2868],
-                    [ 1951, 10048, 2060, 6171],
-                    [ 8010, 16145, 8090, 8045],
-                    [ 1013,   990,  940, 6907]
+                lableLine: {
+                    normal: {
+                        show: false
+                    },
+                    emphasis: {
+                        show: true
+                    }
+                },
+                data:[
+                    {value:10, name:'rose1'},
+                    {value:5, name:'rose2'},
+                    {value:15, name:'rose3'},
+                    {value:25, name:'rose4'},
+                    {value:20, name:'rose5'},
+                    {value:35, name:'rose6'},
+                    {value:30, name:'rose7'},
+                    {value:40, name:'rose8'}
+                ]
+            },
+            {
+                name:'面积模式',
+                type:'pie',
+                radius : [30, 90],
+                center : ['75%', '50%'],
+                roseType : 'area',
+                data:[
+                    {value:10, name:'rose1'},
+                    {value:5, name:'rose2'},
+                    {value:15, name:'rose3'},
+                    {value:25, name:'rose4'},
+                    {value:20, name:'rose5'},
+                    {value:35, name:'rose6'},
+                    {value:30, name:'rose7'},
+                    {value:40, name:'rose8'}
                 ]
             }
         ]
