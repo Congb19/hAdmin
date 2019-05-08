@@ -10,7 +10,7 @@ $(document).ready(function(){
             trigger: 'axis'
         },
         legend: {
-            data:['最高气温','最低气温','最2气温']
+            data:['地铁','小学','医院']
         },
         grid:{
             x:39,
@@ -32,7 +32,7 @@ $(document).ready(function(){
         xAxis:  {
             type: 'category',
             boundaryGap: false,
-            data: ['周一','周二','周三','周四','周五','周六','周日']
+            data: ['4.24', '4.25', '4.26', '4.27', '4.28', '4.29', '4.30']
         },
         yAxis: {
             type: 'value',
@@ -42,7 +42,7 @@ $(document).ready(function(){
         },
         series: [
             {
-                name:'最高气温',
+                name:'地铁',
                 type:'line',
                 smooth: true,
                 data:[11, 11, 15, 13, 12, 13, 10],
@@ -59,7 +59,7 @@ $(document).ready(function(){
                 }
             },
             {
-                name:'最2气温',
+                name:'小学',
                 type:'line',
                 smooth: true,
                 data:[1, 10, 5, 13, 15, 3, 12],
@@ -76,7 +76,7 @@ $(document).ready(function(){
                 }
             },
             {
-                name:'最低气温',
+                name:'医院',
                 type:'line',
                 smooth: true,
                 data:[1, -2, 2, 5, 3, 2, 0],
