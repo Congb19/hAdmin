@@ -12,6 +12,11 @@ $(document).ready(function(){
         legend: {
             data:['最高气温','最低气温','最2气温']
         },
+        grid:{
+            x:39,
+            x2:40,
+            y2:24
+        },
         toolbox: {
             show: true,
             feature: {

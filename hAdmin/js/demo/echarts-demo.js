@@ -1,4 +1,6 @@
+
 $(function () {
+    // 1
     var lineChart = echarts.init(document.getElementById("echarts-line-chart"));
     var lineoption = {
         title : {
@@ -64,7 +66,7 @@ $(function () {
     };
     lineChart.setOption(lineoption);
     $(window).resize(lineChart.resize);
-
+// 2
     var barChart = echarts.init(document.getElementById("echarts-bar-chart"));
     var baroption = {
         title : {
@@ -100,7 +102,7 @@ $(function () {
     barChart.setOption(baroption);
 
     window.onresize = barChart.resize;
-
+// 3
     var scatterChart = echarts.init(document.getElementById("echarts-scatter-chart"));
     var scatteroption = {
         title : {
@@ -155,7 +157,7 @@ $(function () {
     scatterChart.setOption(scatteroption);
     $(window).resize(scatterChart.resize);
 
-
+// 4
     var kChart = echarts.init(document.getElementById("echarts-k-chart"));
     var koption = {
         title : {
@@ -221,7 +223,7 @@ $(function () {
     };
     kChart.setOption(koption);
     $(window).resize(kChart.resize);
-
+// 5
     var pieChart = echarts.init(document.getElementById("echarts-pie-chart"));
     var pieoption = {
         title : {
@@ -236,7 +238,7 @@ $(function () {
         legend: {
             orient : 'vertical',
             x : 'left',
-            data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+            data:['网上大厅','手机APP','政务服务网','微信','国家信访局','政府门户网']
         },
         calculable : true,
         series : [
@@ -246,11 +248,12 @@ $(function () {
                 radius : '55%',
                 center: ['50%', '60%'],
                 data:[
-                    {value:335, name:'直接访问'},
-                    {value:310, name:'邮件营销'},
-                    {value:234, name:'联盟广告'},
-                    {value:135, name:'视频广告'},
-                    {value:1548, name:'搜索引擎'}
+                    {value:1100, name:'网上大厅'},
+                    {value:772, name:'手机APP'},
+                    {value:214, name:'政务服务网'},
+                    {value:46, name:'微信'},
+                    {value:13, name:'国家信访局'},
+                    {value:5, name:'政府门户网'}
                 ]
             }
         ]
@@ -262,7 +265,7 @@ $(function () {
     var radarChart = echarts.init(document.getElementById("echarts-radar-chart"));
     var radaroption = {
         title : {
-            text: '近7天各区域投诉量'
+            text: '近一个月各区域投诉量'
         },
         tooltip : {
             trigger: 'axis'
@@ -279,7 +282,7 @@ $(function () {
         xAxis : [
             {
                 type : 'category',
-                data : ['上城区','下城区','治安','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+                data: ['上城区','下城区','滨江区','富阳区','临安区','拱墅区','开发区','建德市','桐庐县','余杭区','江干区','萧山区','西湖区','产业集聚区']
             }
         ],
         yAxis : [
@@ -291,11 +294,11 @@ $(function () {
             {
                 name:'本月',
                 type:'bar',
-                data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3],
+                data:[406, 211, 351, 327, 217, 358, 182, 232, 278, 507, 504, 410, 38, 235],
                 markPoint : {
                     data : [
-                        {name : '年最高', value : 182.2, xAxis: 7, yAxis: 183, symbolSize:18},
-                        {name : '年最低', value : 2.3, xAxis: 11, yAxis: 3}
+                        {name : '最高', value : 507, xAxis: 7, yAxis: 183, symbolSize:18},
+                        {name : '最低', value : 38, xAxis: 11, yAxis: 3}
                     ]
                 },
                 markLine : {
@@ -457,7 +460,7 @@ $(function () {
     var chordChart = echarts.init(document.getElementById("echarts-chord-chart"));
     var chordoption = {
         title : {
-            text: '南丁格尔玫瑰图',
+            text: '本月与上月的情感分析对比',
             subtext: '纯属虚构',
             x:'center'
         },
@@ -486,7 +489,7 @@ $(function () {
         calculable : true,
         series : [
             {
-                name:'半径模式',
+                name:'上个月',
                 type:'pie',
                 radius : [20, 90],
                 center : ['25%', '50%'],
@@ -511,28 +514,18 @@ $(function () {
                     {value:10, name:'rose1'},
                     {value:5, name:'rose2'},
                     {value:15, name:'rose3'},
-                    {value:25, name:'rose4'},
-                    {value:20, name:'rose5'},
-                    {value:35, name:'rose6'},
-                    {value:30, name:'rose7'},
-                    {value:40, name:'rose8'}
                 ]
             },
             {
-                name:'面积模式',
+                name:'本月',
                 type:'pie',
                 radius : [30, 90],
                 center : ['75%', '50%'],
                 roseType : 'area',
                 data:[
-                    {value:10, name:'rose1'},
-                    {value:5, name:'rose2'},
-                    {value:15, name:'rose3'},
-                    {value:25, name:'rose4'},
-                    {value:20, name:'rose5'},
-                    {value:35, name:'rose6'},
-                    {value:30, name:'rose7'},
-                    {value:40, name:'rose8'}
+                    {value:270, name:'正向'},
+                    {value:108, name:'中行'},
+                    {value:1772, name:'负向'}
                 ]
             }
         ]

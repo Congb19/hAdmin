@@ -9,7 +9,7 @@ $(document).ready(function(){
         legend: {
             orient: 'vertical',
             x: 'left',
-            data:['网上大厅','手机APP','政务服务网','微信','国家信访局']
+            data:['网上大厅','手机APP','政务服务网','微信','国家信访局','政府门户网']
         },
         series: [
             {
@@ -36,11 +36,12 @@ $(document).ready(function(){
                     }
                 },
                 data:[
-                    {value:1305, name:'网上大厅'},
-                    {value:1034, name:'手机APP'},
-                    {value:278, name:'政务服务网'},
-                    {value:36, name:'微信'},
-                    {value:18, name:'国家信访局'}
+                    {value:1100, name:'网上大厅'},
+                    {value:772, name:'手机APP'},
+                    {value:214, name:'政务服务网'},
+                    {value:46, name:'微信'},
+                    {value:13, name:'国家信访局'},
+                    {value:5, name:'政府门户网'}
                 ]
             }
         ]

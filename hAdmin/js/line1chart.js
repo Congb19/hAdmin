@@ -2,18 +2,23 @@ $(document).ready(function(){
     var myChart = echarts.init(document.getElementById('flot-line-chart-moving1'));
 // 指定图表的配置项和数据
     var option = {
+        grid:{
+            x:39,
+            x2:40,
+            y2:24
+        },
         xAxis: {
             type: 'category',
             boundaryGap: false,
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            data: ['4.24', '4.25', '4.26', '4.27', '4.28', '4.29', '4.30']
         },
         yAxis: {
             type: 'value'
         },
         series: [{
-            data: [820, 932, 901, 934, 1290, 1330, 1320],
+            data: [136, 131, 94, 2, 79, 41, 29],
             type: 'line',
-            smooth: true,
+            smooth: false,
             areaStyle: {}
         }]
     };
