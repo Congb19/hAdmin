@@ -1,4 +1,4 @@
-const wordChart= echarts.init(document.getElementById("wordChart"));
+const wordChart= echarts.init(document.getElementById("wordChart"), 'macarons');
 const wordOpt = {
     series: [{
         type: 'wordCloud',

@@ -1,5 +1,5 @@
 $(function () {
-    var lineChart = echarts.init(document.getElementById("echarts-line-chart"));
+    var lineChart = echarts.init(document.getElementById("echarts-line-chart"),'macarons');
     var lineoption = {
         title : {
             text: '各区域投诉量/处理时效'

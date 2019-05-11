@@ -1,5 +1,5 @@
 $(function () {
-    var lineChart = echarts.init(document.getElementById("echarts-line-chart"));
+    var lineChart = echarts.init(document.getElementById("echarts-line-chart"), 'macarons');
     var lineoption = {
         title : {
             text: '各区域投诉量/处理时效'
@@ -65,7 +65,7 @@ $(function () {
     lineChart.setOption(lineoption);
     $(window).resize(lineChart.resize);
 // 2
-    var barChart = echarts.init(document.getElementById("echarts-bar-chart"));
+    var barChart = echarts.init(document.getElementById("echarts-bar-chart"), 'macarons');
     var baroption = {
         title : {
             text: '各区域投诉类别',
@@ -157,10 +157,9 @@ $(function () {
         ]
     };
     barChart.setOption(baroption);
-
     window.onresize = barChart.resize;
 
-    var scatterChart = echarts.init(document.getElementById("echarts-scatter-chart"));
+    var scatterChart = echarts.init(document.getElementById("echarts-scatter-chart"), 'macarons');
     var scatteroption = {
         title : {
             text: '各区域投诉来源',
@@ -174,7 +173,7 @@ $(function () {
             }
         },
         legend: {
-            data: ['直接访问', '邮件营销','联盟广告','视频广告','搜索引擎']
+            data: ['网上大厅','手机APP','政务服务网','微信','国家信访局','政府门户网']
         },
         grid:{
             x:50,
@@ -186,11 +185,11 @@ $(function () {
         },
         xAxis: {
             type: 'category',
-            data: ['周一','周二','周三','周四','周五','周六','周日']
+            data: ['4.24', '4.25', '4.26', '4.27', '4.28', '4.29', '4.30']
         },
         series: [
             {
-                name: '直接访问',
+                name: '网上大厅',
                 type: 'bar',
                 stack: '总量',
                 label: {
@@ -202,7 +201,7 @@ $(function () {
                 data: [320, 302, 301, 334, 390, 330, 320]
             },
             {
-                name: '邮件营销',
+                name: '手机APP',
                 type: 'bar',
                 stack: '总量',
                 label: {
@@ -214,7 +213,7 @@ $(function () {
                 data: [120, 132, 101, 134, 90, 230, 210]
             },
             {
-                name: '联盟广告',
+                name: '政务服务网',
                 type: 'bar',
                 stack: '总量',
                 label: {
@@ -226,7 +225,7 @@ $(function () {
                 data: [220, 182, 191, 234, 290, 330, 310]
             },
             {
-                name: '视频广告',
+                name: '微信',
                 type: 'bar',
                 stack: '总量',
                 label: {
@@ -238,7 +237,19 @@ $(function () {
                 data: [150, 212, 201, 154, 190, 330, 410]
             },
             {
-                name: '搜索引擎',
+                name: '国家信访局',
+                type: 'bar',
+                stack: '总量',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'insideRight'
+                    }
+                },
+                data: [820, 832, 901, 934, 1290, 1330, 1320]
+            },
+            {
+                name: '政府门户网',
                 type: 'bar',
                 stack: '总量',
                 label: {
@@ -255,7 +266,7 @@ $(function () {
     $(window).resize(scatterChart.resize);
 
 // 4
-    var kChart = echarts.init(document.getElementById("echarts-k-chart"));
+    var kChart = echarts.init(document.getElementById("echarts-k-chart"), 'macarons');
     var koption = {
         title : {
             text: '各区域投诉类型'
@@ -341,7 +352,7 @@ $(function () {
     kChart.setOption(koption);
     $(window).resize(kChart.resize);
 
-    var pieChart = echarts.init(document.getElementById("echarts-pie-chart"));
+    var pieChart = echarts.init(document.getElementById("echarts-pie-chart"), 'macarons');
     var pieoption = {
         title : {
             text: '某站点用户访问来源',
@@ -378,7 +389,7 @@ $(function () {
     $(window).resize(pieChart.resize);
 
     // 6
-    var radarChart = echarts.init(document.getElementById("echarts-radar-chart"));
+    var radarChart = echarts.init(document.getElementById("echarts-radar-chart"), 'macarons');
     var radaroption = {
         title : {
             text: '近7天各区域投诉量'
@@ -1015,5 +1026,148 @@ $(function () {
 
     funnelChart.setOption(funneloption);
     $(window).resize(funnelChart.resize);
+
+    // map
+    var mapChart = echarts.init(document.getElementById("echarts-map-chart"));
+    var mapoption = {
+        title : {
+            text: 'iphone销量',
+            subtext: '纯属虚构',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item'
+        },
+        legend: {
+            orient: 'vertical',
+            x:'left',
+            data:['iphone3','iphone4','iphone5']
+        },
+        dataRange: {
+            min: 0,
+            max: 2500,
+            x: 'left',
+            y: 'bottom',
+            text:['高','低'],           // 文本，默认为数值文本
+            calculable : true
+        },
+        toolbox: {
+            show: true,
+            orient : 'vertical',
+            x: 'right',
+            y: 'center',
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        roamController: {
+            show: true,
+            x: 'right',
+            mapTypeControl: {
+                'china': true
+            }
+        },
+        series : [
+            {
+                name: 'iphone3',
+                type: 'map',
+                mapType: 'china',
+                roam: false,
+                itemStyle:{
+                    normal:{label:{show:true}},
+                    emphasis:{label:{show:true}}
+                },
+                data:[
+                    {name: '北京',value: Math.round(Math.random()*1000)},
+                    {name: '天津',value: Math.round(Math.random()*1000)},
+                    {name: '上海',value: Math.round(Math.random()*1000)},
+                    {name: '重庆',value: Math.round(Math.random()*1000)},
+                    {name: '河北',value: Math.round(Math.random()*1000)},
+                    {name: '河南',value: Math.round(Math.random()*1000)},
+                    {name: '云南',value: Math.round(Math.random()*1000)},
+                    {name: '辽宁',value: Math.round(Math.random()*1000)},
+                    {name: '黑龙江',value: Math.round(Math.random()*1000)},
+                    {name: '湖南',value: Math.round(Math.random()*1000)},
+                    {name: '安徽',value: Math.round(Math.random()*1000)},
+                    {name: '山东',value: Math.round(Math.random()*1000)},
+                    {name: '新疆',value: Math.round(Math.random()*1000)},
+                    {name: '江苏',value: Math.round(Math.random()*1000)},
+                    {name: '浙江',value: Math.round(Math.random()*1000)},
+                    {name: '江西',value: Math.round(Math.random()*1000)},
+                    {name: '湖北',value: Math.round(Math.random()*1000)},
+                    {name: '广西',value: Math.round(Math.random()*1000)},
+                    {name: '甘肃',value: Math.round(Math.random()*1000)},
+                    {name: '山西',value: Math.round(Math.random()*1000)},
+                    {name: '内蒙古',value: Math.round(Math.random()*1000)},
+                    {name: '陕西',value: Math.round(Math.random()*1000)},
+                    {name: '吉林',value: Math.round(Math.random()*1000)},
+                    {name: '福建',value: Math.round(Math.random()*1000)},
+                    {name: '贵州',value: Math.round(Math.random()*1000)},
+                    {name: '广东',value: Math.round(Math.random()*1000)},
+                    {name: '青海',value: Math.round(Math.random()*1000)},
+                    {name: '西藏',value: Math.round(Math.random()*1000)},
+                    {name: '四川',value: Math.round(Math.random()*1000)},
+                    {name: '宁夏',value: Math.round(Math.random()*1000)},
+                    {name: '海南',value: Math.round(Math.random()*1000)},
+                    {name: '台湾',value: Math.round(Math.random()*1000)},
+                    {name: '香港',value: Math.round(Math.random()*1000)},
+                    {name: '澳门',value: Math.round(Math.random()*1000)}
+                ]
+            },
+            {
+                name: 'iphone4',
+                type: 'map',
+                mapType: 'china',
+                itemStyle:{
+                    normal:{label:{show:true}},
+                    emphasis:{label:{show:true}}
+                },
+                data:[
+                    {name: '北京',value: Math.round(Math.random()*1000)},
+                    {name: '天津',value: Math.round(Math.random()*1000)},
+                    {name: '上海',value: Math.round(Math.random()*1000)},
+                    {name: '重庆',value: Math.round(Math.random()*1000)},
+                    {name: '河北',value: Math.round(Math.random()*1000)},
+                    {name: '安徽',value: Math.round(Math.random()*1000)},
+                    {name: '新疆',value: Math.round(Math.random()*1000)},
+                    {name: '浙江',value: Math.round(Math.random()*1000)},
+                    {name: '江西',value: Math.round(Math.random()*1000)},
+                    {name: '山西',value: Math.round(Math.random()*1000)},
+                    {name: '内蒙古',value: Math.round(Math.random()*1000)},
+                    {name: '吉林',value: Math.round(Math.random()*1000)},
+                    {name: '福建',value: Math.round(Math.random()*1000)},
+                    {name: '广东',value: Math.round(Math.random()*1000)},
+                    {name: '西藏',value: Math.round(Math.random()*1000)},
+                    {name: '四川',value: Math.round(Math.random()*1000)},
+                    {name: '宁夏',value: Math.round(Math.random()*1000)},
+                    {name: '香港',value: Math.round(Math.random()*1000)},
+                    {name: '澳门',value: Math.round(Math.random()*1000)}
+                ]
+            },
+            {
+                name: 'iphone5',
+                type: 'map',
+                mapType: 'china',
+                itemStyle:{
+                    normal:{label:{show:true}},
+                    emphasis:{label:{show:true}}
+                },
+                data:[
+                    {name: '北京',value: Math.round(Math.random()*1000)},
+                    {name: '天津',value: Math.round(Math.random()*1000)},
+                    {name: '上海',value: Math.round(Math.random()*1000)},
+                    {name: '广东',value: Math.round(Math.random()*1000)},
+                    {name: '台湾',value: Math.round(Math.random()*1000)},
+                    {name: '香港',value: Math.round(Math.random()*1000)},
+                    {name: '澳门',value: Math.round(Math.random()*1000)}
+                ]
+            }
+        ]
+    };
+    mapChart.setOption(mapoption);
+    $(window).resize(mapChart.resize);
 
 });

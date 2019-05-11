@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var myChart = echarts.init(document.getElementById('yesterday2'));
+    var myChart = echarts.init(document.getElementById('yesterday2'), 'macarons');
 // 指定图表的配置项和数据
     var option = {
         title: {
@@ -37,7 +37,7 @@ $(document).ready(function(){
         yAxis: {
             type: 'value',
             axisLabel: {
-                formatter: '{value} °C'
+                formatter: '{value} '
             }
         },
         series: [
@@ -45,7 +45,7 @@ $(document).ready(function(){
                 name:'地铁',
                 type:'line',
                 smooth: true,
-                data:[11, 11, 15, 13, 12, 13, 10],
+                data:[3, 5, 5, 4, 2, 13, 14],
                 markPoint: {
                     data: [
                         {type: 'max', name: '最大值'},
@@ -62,7 +62,7 @@ $(document).ready(function(){
                 name:'小学',
                 type:'line',
                 smooth: true,
-                data:[1, 10, 5, 13, 15, 3, 12],
+                data:[1, 1, 0, 3, 7, 8, 4],
                 markPoint: {
                     data: [
                         {type: 'max', name: '最大值'},
@@ -79,7 +79,7 @@ $(document).ready(function(){
                 name:'医院',
                 type:'line',
                 smooth: true,
-                data:[1, -2, 2, 5, 3, 2, 0],
+                data:[1, 0, 2, 5, 3, 0, 0],
                 markPoint: {
                     data: [
                         {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}

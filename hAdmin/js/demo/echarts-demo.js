@@ -1,7 +1,7 @@
 
 $(function () {
     // 1
-    var lineChart = echarts.init(document.getElementById("echarts-line-chart"));
+    var lineChart = echarts.init(document.getElementById("echarts-line-chart"), 'macarons');
     var lineoption = {
         title : {
             text: '投诉类别占比'
@@ -21,7 +21,7 @@ $(function () {
         xAxis : [
             {
                 type : 'category',
-                data : ['社会保障','教育','治安','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+                data : ['生态环境', '城市管理', '教育', '市场监管', '卫生计生', '移动通信', '住房与城乡建设', '交通运输', '公安执法', '民政', '人力资源与社会保障', '水利', '电力', '交通执法', '税务']
             }
         ],
         yAxis : [
@@ -33,7 +33,7 @@ $(function () {
             {
                 name:'上月',
                 type:'bar',
-                data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
+                data:[51,320,324,461,88,23,334,40,311,40,233,33,49,371,61],
                 markPoint : {
                     data : [
                         {type : 'max', name: '最大值'},
@@ -49,7 +49,7 @@ $(function () {
             {
                 name:'本月',
                 type:'bar',
-                data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3],
+                data:[51,360,376,520,87,16,290,30,270,39,230,26,55,380,66],
                 markPoint : {
                     data : [
                         {name : '年最高', value : 182.2, xAxis: 7, yAxis: 183, symbolSize:18},
@@ -67,11 +67,11 @@ $(function () {
     lineChart.setOption(lineoption);
     $(window).resize(lineChart.resize);
 // 2
-    var barChart = echarts.init(document.getElementById("echarts-bar-chart"));
+    var barChart = echarts.init(document.getElementById("echarts-bar-chart"), 'macarons');
     var baroption = {
         title : {
             text: '投诉类型占比',
-            subtext: '纯属虚构',
+            subtext: '数据来自FLY',
             x:'center'
         },
         tooltip : {
@@ -91,9 +91,9 @@ $(function () {
                 radius : '55%',
                 center: ['50%', '60%'],
                 data:[
-                    {value:335, name:'投诉'},
-                    {value:310, name:'建议'},
-                    {value:234, name:'询问'},
+                    {value:1633, name:'投诉'},
+                    {value:366, name:'建议'},
+                    {value:151, name:'询问'},
                     {value:135, name:'无效信息'}
                 ]
             }
@@ -103,7 +103,7 @@ $(function () {
 
     window.onresize = barChart.resize;
 // 3
-    var scatterChart = echarts.init(document.getElementById("echarts-scatter-chart"));
+    var scatterChart = echarts.init(document.getElementById("echarts-scatter-chart"), 'macarons');
     var scatteroption = {
         title : {
             text: '部门投诉量TOP10'
@@ -124,7 +124,7 @@ $(function () {
             {
                 type : 'category',
                 boundaryGap : false,
-                data : ['周一','周二','周三','周四','周五','周六','周日',]
+                data : ['余杭住建局','余杭公安局','上城金融办公室','萧山人社局','江干公安局','公安交警局','江干交警','上城人社局','建德人社局','拱墅教育局']
             }
         ],
         yAxis : [
@@ -139,7 +139,7 @@ $(function () {
             {
                 name:'本月',
                 type:'line',
-                data:[11, 11, 15, 13, 12, 13, 10],
+                data:[109,102,94,83,68,55,54,49,48,45],
                 markPoint : {
                     data : [
                         {type : 'max', name: '最大值'},
@@ -158,7 +158,7 @@ $(function () {
     $(window).resize(scatterChart.resize);
 
 // 4
-    var kChart = echarts.init(document.getElementById("echarts-k-chart"));
+    var kChart = echarts.init(document.getElementById("echarts-k-chart"), 'macarons');
     var koption = {
         title : {
             text: '近7天总投诉量 与上月对比'
@@ -178,7 +178,7 @@ $(function () {
         xAxis : [
             {
                 type : 'category',
-                data : ['社会保障','教育','治安','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+                data :['4.24', '4.25', '4.26', '4.27', '4.28', '4.29', '4.30']
             }
         ],
         yAxis : [
@@ -190,7 +190,7 @@ $(function () {
             {
                 name:'上月',
                 type:'bar',
-                data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
+                data:[116,121,96,1,45,40,26],
                 markPoint : {
                     data : [
                         {type : 'max', name: '最大值'},
@@ -206,7 +206,7 @@ $(function () {
             {
                 name:'本月',
                 type:'bar',
-                data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3],
+                data:[136,131,94,2,79,41,29],
                 markPoint : {
                     data : [
                         {name : '年最高', value : 182.2, xAxis: 7, yAxis: 183, symbolSize:18},
@@ -224,11 +224,11 @@ $(function () {
     kChart.setOption(koption);
     $(window).resize(kChart.resize);
 // 5
-    var pieChart = echarts.init(document.getElementById("echarts-pie-chart"));
+    var pieChart = echarts.init(document.getElementById("echarts-pie-chart"), 'macarons');
     var pieoption = {
         title : {
             text: '某站点用户访问来源',
-            subtext: '纯属虚构',
+            subtext: '',
             x:'center'
         },
         tooltip : {
@@ -262,7 +262,7 @@ $(function () {
     $(window).resize(pieChart.resize);
 
     // 6
-    var radarChart = echarts.init(document.getElementById("echarts-radar-chart"));
+    var radarChart = echarts.init(document.getElementById("echarts-radar-chart"), 'macarons');
     var radaroption = {
         title : {
             text: '近一个月各区域投诉量'
@@ -457,11 +457,11 @@ $(function () {
     // $(window).resize(mapChart.resize);
 
     // 7
-    var chordChart = echarts.init(document.getElementById("echarts-chord-chart"));
+    var chordChart = echarts.init(document.getElementById("echarts-chord-chart"), 'macarons');
     var chordoption = {
         title : {
             text: '本月与上月的情感分析对比',
-            subtext: '纯属虚构',
+            subtext: '',
             x:'center'
         },
         tooltip : {
@@ -511,9 +511,9 @@ $(function () {
                     }
                 },
                 data:[
-                    {value:10, name:'rose1'},
-                    {value:5, name:'rose2'},
-                    {value:15, name:'rose3'},
+                    {value:270, name:'正向'},
+                    {value:1181, name:'中性'},
+                    {value:1443, name:'负向'}
                 ]
             },
             {
@@ -534,7 +534,7 @@ $(function () {
     chordChart.setOption(chordoption);
     $(window).resize(chordChart.resize);
 
-    var forceChart = echarts.init(document.getElementById("echarts-force-chart"));
+    var forceChart = echarts.init(document.getElementById("echarts-force-chart"), 'macarons');
     var forceoption ={
         title : {
             text: '人物关系：乔布斯',
@@ -647,7 +647,7 @@ $(function () {
     forceChart.setOption(forceoption);
     $(window).resize(forceChart.resize);
 
-    var gaugeChart = echarts.init(document.getElementById("echarts-gauge-chart"));
+    var gaugeChart = echarts.init(document.getElementById("echarts-gauge-chart"), 'macarons');
     var gaugeoption = {
         tooltip : {
             formatter: "{a} <br/>{c} {b}"
@@ -836,7 +836,7 @@ $(function () {
     gaugeChart.setOption(gaugeoption);
     $(window).resize(gaugeChart.resize);
 
-    var funnelChart = echarts.init(document.getElementById("echarts-funnel-chart"));
+    var funnelChart = echarts.init(document.getElementById("echarts-funnel-chart"), 'macarons');
     var funneloption = {
         title : {
             text: '漏斗图',

@@ -17,6 +17,7 @@
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css?v=4.1.0" rel="stylesheet">
 
+
 </head>
 
 <body class="gray-bg">
@@ -134,6 +135,9 @@
                     <!--此处是情感分析图 横向柱状 纵坐标为时间-->
                     <div class="col-sm-5">
                         <div class="ibox float-e-margins">
+                            <div class="ibox-title" style="border-bottom:none;background:#fff;">
+                                <h5>情感分布</h5>
+                            </div>
                         <div class="" id="ibox-content">
                             <div class="ibox-content" style="height: 600px">
                                 <div id="emotionchart" style="height: 550px"></div>
@@ -159,17 +163,17 @@
 
             <div class="col-sm-3">
                 <!--此处是某部门/地区信息-->
-                <!--<div class="ibox float-e-margins" style="height: 200px; padding: 20px">-->
-                    <!--<div class="ibox-title" style="background: #fff; font-size: 30px">-->
-                        <!--<h3 >社会保障部门</h3>-->
-                    <!--</div>-->
-                    <!--<div style=" position:absolute;left: 53px; top: 66px;">X X X办公室</div>-->
-                    <!--<div style="height: 2px; width: 100%; background: #666; margin-top: 30px;"></div>-->
-                    <!--<div >-->
-                        <!--<div style="position:relative; top: 20px; left: 14px">上次登录时间：2019-05-01</div>-->
-                        <!--<div style="position:relative; top: 40px; left: 14px">上次登录IP：112.10.193.***</div>-->
-                    <!--</div>-->
-                <!--</div>-->
+                <div class="ibox float-e-margins" style="height: 200px; padding: 20px">
+                    <div class="ibox-title" style="background: #fff; font-size: 30px">
+                        <h3 >系统管理员</h3>
+                    </div>
+                    <div style=" position:absolute;left: 53px; top: 66px;">admin</div>
+                    <div style="height: 2px; width: 100%; background: #666; margin-top: 30px;"></div>
+                    <div >
+                        <div style="position:relative; top: 20px; left: 14px">上次登录时间：2019-05-01</div>
+                        <div style="position:relative; top: 40px; left: 14px">上次登录IP：112.10.193.***</div>
+                    </div>
+                </div>
                 <!--此处是热点事件表-->
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
@@ -190,7 +194,7 @@
                             <li>
                                 <a href="widgets.html#" class="check-link"><i class="fa fa-square-o"></i> </a>
                                 <span class="m-l-xs">阳光城翡丽海湾开放商隐瞒消费者</span>
-                                <small class="label label-primary"><i class="fa fa-clock-o"></i> 1小时</small>
+                                <small class="label label-primary"><i class="fa fa-clock-o"></i> 0.6小时</small>
                             </li>
                             <li>
                                 <a href="widgets.html#" class="check-link"><i class="fa fa-square-o"></i> </a>
@@ -205,27 +209,27 @@
                             <li>
                                 <a href="widgets.html#" class="check-link"><i class="fa fa-square-o"></i> </a>
                                 <span class="m-l-xs">钱江世纪城地铁站f出口附近一工地每天晚上施工</span>
-                                <small class="label label-primary"><i class="fa fa-clock-o"></i> 1小时</small>
+                                <small class="label label-primary"><i class="fa fa-clock-o"></i> 3小时</small>
                             </li>
                             <li>
                                 <a href="widgets.html#" class="check-link"><i class="fa fa-square-o"></i> </a>
                                 <span class="m-l-xs">生育登记无法进入查询</span>
-                                <small class="label label-primary"><i class="fa fa-clock-o"></i> 1小时</small>
+                                <small class="label label-primary"><i class="fa fa-clock-o"></i> 3小时</small>
                             </li>
                             <li>
                                 <a href="widgets.html#" class="check-link"><i class="fa fa-square-o"></i> </a>
                                 <span class="m-l-xs">长龙领航城小区安全隐患</span>
-                                <small class="label label-primary"><i class="fa fa-clock-o"></i> 1小时</small>
+                                <small class="label label-primary"><i class="fa fa-clock-o"></i> 4小时</small>
                             </li>
                             <li>
                                 <a href="widgets.html#" class="check-link"><i class="fa fa-square-o"></i> </a>
                                 <span class="m-l-xs">新生儿医保如何办理</span>
-                                <small class="label label-primary"><i class="fa fa-clock-o"></i> 1小时</small>
+                                <small class="label label-primary"><i class="fa fa-clock-o"></i> 5小时</small>
                             </li>
                             <li>
                                 <a href="widgets.html#" class="check-link"><i class="fa fa-square-o"></i> </a>
                                 <span class="m-l-xs">誉峰花苑小区城管无作为</span>
-                                <small class="label label-primary"><i class="fa fa-clock-o"></i> 1小时</small>
+                                <small class="label label-primary"><i class="fa fa-clock-o"></i> 6小时</small>
                             </li>
 
                         </ul>
@@ -254,6 +258,7 @@
     <script src="js/plugins/layer/layer.min.js"></script>
     <!-- Flot -->
 
+    <script src="js/macarons.js"></script>
     <script src="js/line1chart.js"></script>
     <script src="js/line2chart1.js"></script>
     <script src="js/line2chart2.js"></script>

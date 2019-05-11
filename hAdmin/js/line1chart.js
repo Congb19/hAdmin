@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var myChart = echarts.init(document.getElementById('flot-line-chart-moving1'));
+    var myChart = echarts.init(document.getElementById('flot-line-chart-moving1'), 'macarons');
 // 指定图表的配置项和数据
     var option = {
         grid:{
