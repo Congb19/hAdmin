@@ -52,8 +52,8 @@ $(function () {
                 data:[51,360,376,520,87,16,290,30,270,39,230,26,55,380,66],
                 markPoint : {
                     data : [
-                        {name : '年最高', value : 182.2, xAxis: 7, yAxis: 183, symbolSize:18},
-                        {name : '年最低', value : 2.3, xAxis: 11, yAxis: 3}
+                        {type : 'max', name: '最大值'},
+                        {type : 'min', name: '最小值'}
                     ]
                 },
                 markLine : {
@@ -131,7 +131,7 @@ $(function () {
             {
                 type : 'value',
                 axisLabel : {
-                    formatter: '{value} °C'
+                    formatter: '{value}'
                 }
             }
         ],
@@ -227,7 +227,7 @@ $(function () {
     var pieChart = echarts.init(document.getElementById("echarts-pie-chart"), 'macarons');
     var pieoption = {
         title : {
-            text: '某站点用户访问来源',
+            text: '投诉来源',
             subtext: '',
             x:'center'
         },
@@ -534,303 +534,168 @@ $(function () {
     chordChart.setOption(chordoption);
     $(window).resize(chordChart.resize);
 
-    var forceChart = echarts.init(document.getElementById("echarts-force-chart"), 'macarons');
-    var forceoption ={
-        title : {
-            text: '人物关系：乔布斯',
-            subtext: '数据来自人立方',
-            x:'right',
-            y:'bottom'
-        },
-        tooltip : {
-            trigger: 'item',
-            formatter: '{a} : {b}'
-        },
-        toolbox: {
-            show : true,
-            feature : {
-                restore : {show: true},
-                magicType: {show: true, type: ['force', 'chord']},
-                saveAsImage : {show: true}
-            }
-        },
-        legend: {
-            x: 'left',
-            data:['家人','朋友']
-        },
-        series : [
-            {
-                type:'force',
-                name : "人物关系",
-                ribbonType: false,
-                categories : [
-                    {
-                        name: '人物'
-                    },
-                    {
-                        name: '家人'
-                    },
-                    {
-                        name:'朋友'
-                    }
-                ],
-                itemStyle: {
-                    normal: {
-                        label: {
-                            show: true,
-                            textStyle: {
-                                color: '#333'
-                            }
-                        },
-                        nodeStyle : {
-                            brushType : 'both',
-                            borderColor : 'rgba(255,215,0,0.4)',
-                            borderWidth : 1
-                        },
-                        linkStyle: {
-                            type: 'curve'
-                        }
-                    },
-                    emphasis: {
-                        label: {
-                            show: false
-                            // textStyle: null      // 默认使用全局文本样式，详见TEXTSTYLE
-                        },
-                        nodeStyle : {
-                            //r: 30
-                        },
-                        linkStyle : {}
-                    }
-                },
-                useWorker: false,
-                minRadius : 15,
-                maxRadius : 25,
-                gravity: 1.1,
-                scaling: 1.1,
-                roam: 'move',
-                nodes:[
-                    {category:0, name: '乔布斯', value : 10},
-                    {category:1, name: '丽萨-乔布斯',value : 2},
-                    {category:1, name: '保罗-乔布斯',value : 3},
-                    {category:1, name: '克拉拉-乔布斯',value : 3},
-                    {category:1, name: '劳伦-鲍威尔',value : 7},
-                    {category:2, name: '史蒂夫-沃兹尼艾克',value : 5},
-                    {category:2, name: '奥巴马',value : 8},
-                    {category:2, name: '比尔-盖茨',value : 9},
-                    {category:2, name: '乔纳森-艾夫',value : 4},
-                    {category:2, name: '蒂姆-库克',value : 4},
-                    {category:2, name: '龙-韦恩',value : 1},
-                ],
-                links : [
-                    {source : '丽萨-乔布斯', target : '乔布斯', weight : 1, name: '女儿'},
-                    {source : '保罗-乔布斯', target : '乔布斯', weight : 2, name: '父亲'},
-                    {source : '克拉拉-乔布斯', target : '乔布斯', weight : 1, name: '母亲'},
-                    {source : '劳伦-鲍威尔', target : '乔布斯', weight : 2},
-                    {source : '史蒂夫-沃兹尼艾克', target : '乔布斯', weight : 3, name: '合伙人'},
-                    {source : '奥巴马', target : '乔布斯', weight : 1},
-                    {source : '比尔-盖茨', target : '乔布斯', weight : 6, name: '竞争对手'},
-                    {source : '乔纳森-艾夫', target : '乔布斯', weight : 1, name: '爱将'},
-                    {source : '蒂姆-库克', target : '乔布斯', weight : 1},
-                    {source : '龙-韦恩', target : '乔布斯', weight : 1},
-                    {source : '克拉拉-乔布斯', target : '保罗-乔布斯', weight : 1},
-                    {source : '奥巴马', target : '保罗-乔布斯', weight : 1},
-                    {source : '奥巴马', target : '克拉拉-乔布斯', weight : 1},
-                    {source : '奥巴马', target : '劳伦-鲍威尔', weight : 1},
-                    {source : '奥巴马', target : '史蒂夫-沃兹尼艾克', weight : 1},
-                    {source : '比尔-盖茨', target : '奥巴马', weight : 6},
-                    {source : '比尔-盖茨', target : '克拉拉-乔布斯', weight : 1},
-                    {source : '蒂姆-库克', target : '奥巴马', weight : 1}
-                ]
-            }
-        ]
-    };
-    forceChart.setOption(forceoption);
-    $(window).resize(forceChart.resize);
-
+    // var forceChart = echarts.init(document.getElementById("echarts-force-chart"), 'macarons');
+    // var forceoption ={
+    //     title : {
+    //         text: '人物关系：乔布斯',
+    //         subtext: '数据来自人立方',
+    //         x:'right',
+    //         y:'bottom'
+    //     },
+    //     tooltip : {
+    //         trigger: 'item',
+    //         formatter: '{a} : {b}'
+    //     },
+    //     toolbox: {
+    //         show : true,
+    //         feature : {
+    //             restore : {show: true},
+    //             magicType: {show: true, type: ['force', 'chord']},
+    //             saveAsImage : {show: true}
+    //         }
+    //     },
+    //     legend: {
+    //         x: 'left',
+    //         data:['家人','朋友']
+    //     },
+    //     series : [
+    //         {
+    //             type:'force',
+    //             name : "人物关系",
+    //             ribbonType: false,
+    //             categories : [
+    //                 {
+    //                     name: '人物'
+    //                 },
+    //                 {
+    //                     name: '家人'
+    //                 },
+    //                 {
+    //                     name:'朋友'
+    //                 }
+    //             ],
+    //             itemStyle: {
+    //                 normal: {
+    //                     label: {
+    //                         show: true,
+    //                         textStyle: {
+    //                             color: '#333'
+    //                         }
+    //                     },
+    //                     nodeStyle : {
+    //                         brushType : 'both',
+    //                         borderColor : 'rgba(255,215,0,0.4)',
+    //                         borderWidth : 1
+    //                     },
+    //                     linkStyle: {
+    //                         type: 'curve'
+    //                     }
+    //                 },
+    //                 emphasis: {
+    //                     label: {
+    //                         show: false
+    //                         // textStyle: null      // 默认使用全局文本样式，详见TEXTSTYLE
+    //                     },
+    //                     nodeStyle : {
+    //                         //r: 30
+    //                     },
+    //                     linkStyle : {}
+    //                 }
+    //             },
+    //             useWorker: false,
+    //             minRadius : 15,
+    //             maxRadius : 25,
+    //             gravity: 1.1,
+    //             scaling: 1.1,
+    //             roam: 'move',
+    //             nodes:[
+    //                 {category:0, name: '乔布斯', value : 10},
+    //                 {category:1, name: '丽萨-乔布斯',value : 2},
+    //                 {category:1, name: '保罗-乔布斯',value : 3},
+    //                 {category:1, name: '克拉拉-乔布斯',value : 3},
+    //                 {category:1, name: '劳伦-鲍威尔',value : 7},
+    //                 {category:2, name: '史蒂夫-沃兹尼艾克',value : 5},
+    //                 {category:2, name: '奥巴马',value : 8},
+    //                 {category:2, name: '比尔-盖茨',value : 9},
+    //                 {category:2, name: '乔纳森-艾夫',value : 4},
+    //                 {category:2, name: '蒂姆-库克',value : 4},
+    //                 {category:2, name: '龙-韦恩',value : 1},
+    //             ],
+    //             links : [
+    //                 {source : '丽萨-乔布斯', target : '乔布斯', weight : 1, name: '女儿'},
+    //                 {source : '保罗-乔布斯', target : '乔布斯', weight : 2, name: '父亲'},
+    //                 {source : '克拉拉-乔布斯', target : '乔布斯', weight : 1, name: '母亲'},
+    //                 {source : '劳伦-鲍威尔', target : '乔布斯', weight : 2},
+    //                 {source : '史蒂夫-沃兹尼艾克', target : '乔布斯', weight : 3, name: '合伙人'},
+    //                 {source : '奥巴马', target : '乔布斯', weight : 1},
+    //                 {source : '比尔-盖茨', target : '乔布斯', weight : 6, name: '竞争对手'},
+    //                 {source : '乔纳森-艾夫', target : '乔布斯', weight : 1, name: '爱将'},
+    //                 {source : '蒂姆-库克', target : '乔布斯', weight : 1},
+    //                 {source : '龙-韦恩', target : '乔布斯', weight : 1},
+    //                 {source : '克拉拉-乔布斯', target : '保罗-乔布斯', weight : 1},
+    //                 {source : '奥巴马', target : '保罗-乔布斯', weight : 1},
+    //                 {source : '奥巴马', target : '克拉拉-乔布斯', weight : 1},
+    //                 {source : '奥巴马', target : '劳伦-鲍威尔', weight : 1},
+    //                 {source : '奥巴马', target : '史蒂夫-沃兹尼艾克', weight : 1},
+    //                 {source : '比尔-盖茨', target : '奥巴马', weight : 6},
+    //                 {source : '比尔-盖茨', target : '克拉拉-乔布斯', weight : 1},
+    //                 {source : '蒂姆-库克', target : '奥巴马', weight : 1}
+    //             ]
+    //         }
+    //     ]
+    // };
+    // forceChart.setOption(forceoption);
+    // $(window).resize(forceChart.resize);
+// 8
     var gaugeChart = echarts.init(document.getElementById("echarts-gauge-chart"), 'macarons');
     var gaugeoption = {
+        title : {
+            text: '近一周办理时效'
+        },
         tooltip : {
-            formatter: "{a} <br/>{c} {b}"
+            trigger: 'axis'
         },
-        toolbox: {
-            show : true,
-            feature : {
-                mark : {show: true},
-                restore : {show: true},
-                saveAsImage : {show: true}
+        // legend: {
+        //     data:['本月','上月']
+        // },
+        grid:{
+            x:40,
+            x2:40,
+            y2:24
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : false,
+                data : ['4.24', '4.25', '4.26', '4.27', '4.28', '4.29', '4.30']
             }
-        },
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                axisLabel : {
+                    formatter: '{value} °C'
+                }
+            }
+        ],
         series : [
             {
-                name:'速度',
-                type:'gauge',
-                min:0,
-                max:220,
-                splitNumber:11,
-                axisLine: {            // 坐标轴线
-                    lineStyle: {       // 属性lineStyle控制线条样式
-                        width: 10
-                    }
+                name:'时效：',
+                type:'line',
+                data:[6.422,6.787,6.025,0.833,1.256,7.124,6.121],
+                markPoint : {
+                    data : [
+                        {type : 'max', name: '最大值'},
+                        {type : 'min', name: '最小值'}
+                    ]
                 },
-                axisTick: {            // 坐标轴小标记
-                    length :15,        // 属性length控制线长
-                    lineStyle: {       // 属性lineStyle控制线条样式
-                        color: 'auto'
-                    }
-                },
-                splitLine: {           // 分隔线
-                    length :20,         // 属性length控制线长
-                    lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                        color: 'auto'
-                    }
-                },
-                title : {
-                    textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                        fontWeight: 'bolder',
-                        fontSize: 20,
-                        fontStyle: 'italic'
-                    }
-                },
-                detail : {
-                    textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                        fontWeight: 'bolder'
-                    }
-                },
-                data:[{value: 40, name: 'km/h'}]
+                markLine : {
+                    data : [
+                        {type : 'average', name: '平均值'}
+                    ]
+                }
             },
-            {
-                name:'转速',
-                type:'gauge',
-                center : ['25%', '55%'],    // 默认全局居中
-                radius : '50%',
-                min:0,
-                max:7,
-                endAngle:45,
-                splitNumber:7,
-                axisLine: {            // 坐标轴线
-                    lineStyle: {       // 属性lineStyle控制线条样式
-                        width: 8
-                    }
-                },
-                axisTick: {            // 坐标轴小标记
-                    length :12,        // 属性length控制线长
-                    lineStyle: {       // 属性lineStyle控制线条样式
-                        color: 'auto'
-                    }
-                },
-                splitLine: {           // 分隔线
-                    length :20,         // 属性length控制线长
-                    lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                        color: 'auto'
-                    }
-                },
-                pointer: {
-                    width:5
-                },
-                title : {
-                    offsetCenter: [0, '-30%'],       // x, y，单位px
-                },
-                detail : {
-                    textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                        fontWeight: 'bolder'
-                    }
-                },
-                data:[{value: 1.5, name: 'x1000 r/min'}]
-            },
-            {
-                name:'油表',
-                type:'gauge',
-                center : ['75%', '50%'],    // 默认全局居中
-                radius : '50%',
-                min:0,
-                max:2,
-                startAngle:135,
-                endAngle:45,
-                splitNumber:2,
-                axisLine: {            // 坐标轴线
-                    lineStyle: {       // 属性lineStyle控制线条样式
-                        color: [[0.2, '#ff4500'],[0.8, '#48b'],[1, '#228b22']],
-                        width: 8
-                    }
-                },
-                axisTick: {            // 坐标轴小标记
-                    splitNumber:5,
-                    length :10,        // 属性length控制线长
-                    lineStyle: {       // 属性lineStyle控制线条样式
-                        color: 'auto'
-                    }
-                },
-                axisLabel: {
-                    formatter:function(v){
-                        switch (v + '') {
-                            case '0' : return 'E';
-                            case '1' : return 'Gas';
-                            case '2' : return 'F';
-                        }
-                    }
-                },
-                splitLine: {           // 分隔线
-                    length :15,         // 属性length控制线长
-                    lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                        color: 'auto'
-                    }
-                },
-                pointer: {
-                    width:2
-                },
-                title : {
-                    show: false
-                },
-                detail : {
-                    show: false
-                },
-                data:[{value: 0.5, name: 'gas'}]
-            },
-            {
-                name:'水表',
-                type:'gauge',
-                center : ['75%', '50%'],    // 默认全局居中
-                radius : '50%',
-                min:0,
-                max:2,
-                startAngle:315,
-                endAngle:225,
-                splitNumber:2,
-                axisLine: {            // 坐标轴线
-                    lineStyle: {       // 属性lineStyle控制线条样式
-                        color: [[0.2, '#ff4500'],[0.8, '#48b'],[1, '#228b22']],
-                        width: 8
-                    }
-                },
-                axisTick: {            // 坐标轴小标记
-                    show: false
-                },
-                axisLabel: {
-                    formatter:function(v){
-                        switch (v + '') {
-                            case '0' : return 'H';
-                            case '1' : return 'Water';
-                            case '2' : return 'C';
-                        }
-                    }
-                },
-                splitLine: {           // 分隔线
-                    length :15,         // 属性length控制线长
-                    lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                        color: 'auto'
-                    }
-                },
-                pointer: {
-                    width:2
-                },
-                title : {
-                    show: false
-                },
-                detail : {
-                    show: false
-                },
-                data:[{value: 0.5, name: 'gas'}]
-            }
         ]
     };
     gaugeChart.setOption(gaugeoption);
